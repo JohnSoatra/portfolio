@@ -1,0 +1,10 @@
+#my-text {
+    color: transparent;
+    background-image: url('/pattern.webp');
+    background-size: 100% 100%;
+    background-origin: border-box;
+    background-position: center;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
