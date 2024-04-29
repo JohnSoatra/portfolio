@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
-    "@soatra/any": "/Users/soatra/Documents/VSCode_Actions/react/any",
+    "@soatra/any": "^2.1.1",
     "next": "14.1.4",
     "prisma": "^5.13.0",
     "profane-words": "^1.5.11",
