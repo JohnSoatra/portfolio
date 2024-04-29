@@ -27,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
     return (
         <html lang="en">
             <head>
-                <link rel="preload" href="/pattern.webp" />
+                <link rel="preload" as="image" href="/pattern.webp" />
             </head>
             <body>
                 {children}
