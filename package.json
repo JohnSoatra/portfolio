@@ -9,17 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "@soatra/any": "/Users/soatra/Documents/VSCode_Actions/react/any",
+    "next": "14.1.4",
+    "prisma": "^5.13.0",
+    "profane-words": "^1.5.11",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.4"
+    "react-hot-toast": "^2.4.1",
+    "sass": "^1.75.0",
+    "sharp": "^0.33.3",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }
