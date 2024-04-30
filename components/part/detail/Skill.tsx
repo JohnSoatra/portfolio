@@ -1,5 +1,7 @@
 import React from 'react';
 import Class from '@/constants/classes';
+import Any from '@soatra/any';
+import Vars from '@/constants/vars';
 
 const Skills: {
 	name: string,
@@ -56,16 +58,35 @@ const Skill = () => {
 					className='
 						w-full flex flex-col items-center gap-y-[10px]
 					'>
-					<p
-						className={Class.Section_Title}>
+					<Any
+						as='h2'
+						className={Class.Section_Title}
+						from="opacity-0"
+						to={[
+							{
+								state: 'opacity-100',
+								duration: Vars.Duration,
+								easing: Vars.Easing,
+								delay: Vars.Delay,
+							}
+						]}>
 						Skill
-					</p>
-					<div
+					</Any>
+					<Any
 						className='
 							flex flex-col gap-y-[10px] text-[14px]
 							md:text-[15px]
 							lg:text-[16px]
-						'>
+						'
+						from="opacity-0"
+						to={[
+							{
+								state: 'opacity-100',
+								duration: Vars.Duration,
+								easing: Vars.Easing,
+								delay: Vars.Delay,
+							}
+						]}>
 						{
 							Skills.map((skill, index) =>
 								<div
@@ -89,7 +110,7 @@ const Skill = () => {
 								</div>
 							)
 						}
-					</div>
+					</Any>
                 </div>
             </div>
         </section>

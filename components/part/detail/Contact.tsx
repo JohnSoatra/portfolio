@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Class from '@/constants/classes';
+import Any from '@soatra/any';
+import Vars from '@/constants/vars';
 
 const Contacts: {
 	name: string,
@@ -36,16 +38,35 @@ const Contact = () => {
 					className='
 						w-full flex flex-col items-center gap-y-[10px]
 					'>
-					<p
-						className={Class.Section_Title}>
+					<Any
+						as='h2'
+						className={Class.Section_Title}
+						from="opacity-0"
+						to={[
+							{
+								state: 'opacity-100',
+								duration: Vars.Duration,
+								easing: Vars.Easing,
+								delay: Vars.Delay,
+							}
+						]}>
 						Contact
-					</p>
-					<div
+					</Any>
+					<Any
 						className='
 							flex flex-col gap-y-[10px] text-[14px]
 							md:text-[15px]
 							lg:text-[16px]
-						'>
+						'
+						from="opacity-0"
+						to={[
+							{
+								state: 'opacity-100',
+								duration: Vars.Duration,
+								easing: Vars.Easing,
+								delay: Vars.Delay,
+							}
+						]}>
 						{
 							Contacts.map((contact, index) =>
 								<div
@@ -57,8 +78,9 @@ const Contact = () => {
 									'>
 									<p
 										className='
-											w-[81px]
-											md:w-[130px]
+											w-[100px]
+											sm:w-[130px]
+											md:w-[145px]
 											lg:w-[160px]
 										'>
 										{contact.name}:
@@ -75,7 +97,7 @@ const Contact = () => {
 								</div>
 							)
 						}
-					</div>
+					</Any>
                 </div>
             </div>
         </div>

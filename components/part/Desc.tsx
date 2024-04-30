@@ -1,4 +1,6 @@
 import React from "react";
+import Vars from "@/constants/vars";
+import Any from "@soatra/any";
 
 const Desc = () => {
     return (
@@ -16,16 +18,25 @@ const Desc = () => {
 					lg:mb-40
 					xl:mb-48
 				">
-				<p
+				<Any
+					as="p"
 					className="
-						w-full flex flex-col text-center opacity-85 text-[15px]
+						w-full flex flex-col text-center text-[15px]
 						md:text-[16px]
 						lg:text-[17px]
-					">
+					"
+					from="opacity-0"
+					to={[
+						{
+							state: 'opacity-85',
+							duration: Vars.Duration,
+							easing: Vars.Easing
+						}
+					]}>
 					I am a lucky boy,<br />
 					so you are also lucky,<br />
 					because you know me.
-				</p>
+				</Any>
 			</div>
 		</div>
     );

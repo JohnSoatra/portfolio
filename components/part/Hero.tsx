@@ -89,10 +89,11 @@ const Hero = () => {
 						w-full flex flex-col items-center
 					">
                     <h1
+						id="hero-text"
                         className="
-							w-full text-[25px] font-hexa tracking-[5px] text-center flex flex-wrap justify-center items-center gap-x-[20px]
-							md:text-[35px] 
-							lg:text-[50px]
+							w-full font-hexa text-center flex flex-wrap justify-center items-center gap-x-[10px]
+							sm:gap-y-[20px]
+							md:gap-x-[25px]
 						">
 							{
 								Texts[textIndex].text

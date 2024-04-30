@@ -7,6 +7,8 @@ import Todo from '@/assets/icons/todo.webp';
 import EightLife from '@/assets/icons/8life.png';
 import Joa from '@/assets/icons/joa.png';
 import GxDx from '@/assets/icons/gx-dx.png';
+import Any from '@soatra/any';
+import Vars from '@/constants/vars';
 
 const Portfolios: {
 	image: StaticImageData,
@@ -46,10 +48,20 @@ const Portfolio = () => {
 					className='
 						w-full flex flex-col items-center gap-y-[20px]
 					'>
-					<p
-						className={Class.Section_Title}>
+					<Any
+						as='h2'
+						className={Class.Section_Title}
+						from="opacity-0"
+						to={[
+							{
+								state: 'opacity-100',
+								duration: Vars.Duration,
+								easing: Vars.Easing,
+								delay: Vars.Delay,
+							}
+						]}>
 						Portfolio
-					</p>
+					</Any>
 					<div
 						className='
 							w-full flex flex-col items-center gap-y-[40px]
@@ -58,11 +70,20 @@ const Portfolio = () => {
 						'>
 						{
 							Portfolios.map((port, index) =>
-								<div
+								<Any
 									key={index}
 									className='
 										w-full flex justify-center items-center
-									'>
+									'
+									from="opacity-0 translate-y-[40px]"
+									to={[
+										{
+											state: 'opacity-100 translate-y-0',
+											duration: Vars.Duration,
+											easing: 'backOut',
+											delay: Vars.Delay,
+										}
+									]}>
 									<Link
 										href={port.link}
 										target='_blank'
@@ -77,7 +98,7 @@ const Portfolio = () => {
 											className='w-full h-full object-contain grayscale-[10%]'
 										/>
 									</Link>
-								</div>
+								</Any>
 							)
 						}
 					</div>
