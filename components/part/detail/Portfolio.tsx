@@ -75,7 +75,7 @@ const Portfolio = () => {
 									className='
 										w-full flex justify-center items-center
 									'
-									from="opacity-0 translate-y-[40px]"
+									from="opacity-0 translate-y-[20px]"
 									to={[
 										{
 											state: 'opacity-100 translate-y-0',
