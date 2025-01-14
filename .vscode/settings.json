@@ -1,0 +1,14 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "https-lomasq-com-",
+    "projectKey": "infoweb-website-nextjs"
+  },
+  "editor.formatOnSave": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "editor.formatOnSave": false
+  }
+}

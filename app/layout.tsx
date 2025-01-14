@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from "next";
 import "@/assets/styles/global.scss";
+import type { Metadata, Viewport } from "next";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
@@ -23,11 +23,11 @@ export const viewport: Viewport = {
     colorScheme: 'dark'
 }
 
-export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
             <head>
-                <link rel="preload" as="image" href="/pattern.webp" />
+                {/* <link rel="preload" as="image" href="/pattern.webp" /> */}
             </head>
             <body>
                 {children}
