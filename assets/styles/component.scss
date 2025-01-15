@@ -1,0 +1,77 @@
+:root {
+  --planeColor: black;
+  --size: 130px;
+}
+.planeWrapper {
+  overflow: hidden;
+  transform-origin: top;
+  width: var(--size);
+  aspect-ratio: 1.68;
+  display: grid;
+  place-items: center;
+  .planeBody {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 7/1;
+    border-bottom-left-radius: 50% 100%;
+    border-top-right-radius: 25% 90%;
+    border-bottom-right-radius: 20% 20%;
+    &,
+    & * {
+      background: var(--planeColor);
+    }
+  }
+  .planeTail {
+    position: absolute;
+    left: calc(-0.3% + 1px);
+    top: -120%;
+    width: 15%;
+    aspect-ratio: 1/1.25;
+    transform: skewX(5deg) translateX(-5%);
+    border-top-left-radius: 10%;
+    border-top-right-radius: 100% 100%;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 55%;
+      aspect-ratio: 1;
+      transform: skewX(0deg) rotate(-8deg);
+      right: -60%;
+      bottom: 4.5%;
+      background: radial-gradient(
+        circle at 100% 0%,
+        transparent 70%,
+        var(--planeColor) calc(70% + 0.5px)
+      );
+    }
+  }
+  .wingLeft,
+  .wingRight {
+    position: absolute;
+    left: 50%;
+    width: 25%;
+    aspect-ratio: 1;
+  }
+  .wingLeft {
+    transform-origin: bottom;
+    top: -190%;
+    transform: skewX(45deg) translateX(-30%);
+    scale: 0.8;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 60% 100%;
+  }
+  .wingRight {
+    transform-origin: top;
+    bottom: -170%;
+    transform: skewX(-45deg);
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 60% 100%;
+  }
+}
+
+.background {
+  background-image: url("/imgs/sky-8.jpeg");
+  background-size: auto 100%;
+  background-position: center 90%;
+  background-repeat: repeat;
+}

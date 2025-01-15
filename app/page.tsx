@@ -1,85 +1,32 @@
-'use client';
-import React, { useEffect, useState } from "react";
-import Hero from "@/components/part/Hero";
-import Desc from "@/components/part/Desc";
-import Background from "@/components/part/Background";
-import Hello from "@/components/part/detail/Hello";
-import SpaceBottom from "@/components/part/SpaceBottom";
-import Skill from "@/components/part/detail/Skill";
-import Portfolio from "@/components/part/detail/Portfolio";
-import Contact from "@/components/part/detail/Contact";
-import Footer from "@/components/layout/Footer";
-import Visitor from "@/components/part/visitor/Visitor";
-import UpdateVisitor from "@/components/part/visitor/Update";
+import React from "react";
+import Hero from "@/components/home/Hero";
+import Desc from "@/components/home/Bio";
+import Link from "next/link";
+import Image from "next/image";
+import Airplane from "@/components/common/Airplane";
 
 const Home = () => {
-    const [visitorName, setVisitorName] = useState(undefined as undefined|string);
-    const [visitorLink, setVisitorLink] = useState(undefined as undefined|string);
-    const [topPercent, setTopPercent] = useState(0);
-
-    useEffect(() => {
-        const controller = new AbortController();
-
-        const work = async () => {
-            const response = await fetch('/api', {
-                signal: controller.signal
-            });
-            const data: LastVisitor|null = await response.json();
-
-            if (data !== null) {
-                setVisitorName(data.name);
-                setVisitorLink(data.link||undefined);
-            }
-        }
-
-        work();
-
-        return () => {
-            controller.abort();
-        }
-    }, []);
-
     return (
-        <div
-            className="
-                w-screen h-screen fixed inset-0 flex flex-col items-center overflow-scroll
-            "
-            onScroll={(evt) => {
-                const target = evt.currentTarget;
-                const percent = target.scrollTop / (target.scrollHeight - target.clientHeight);
-
-                setTopPercent(percent);
-            }}>
-            <Background
-                topPercent={topPercent}
-            />
-            <div
-                className="
-                    w-full z-10
-                ">
-                <div
-                    className="
-                        w-full min-h-screen flex flex-col items-center
-                    ">
-                    <Visitor
-                        visitorName={visitorName}
-                        visitorLink={visitorLink}
-                    />
-                    <Hero />
+        <div className="w-full min-h-screen flex flex-col items-center overflow-hidden">
+            <div className="w-full min-h-full max-w-[1080px] relative flex-1 flex flex-col justify-center items-center pb-[190px]">
+                <div className="background fixed top-0 left-0 w-full h-full opacity-80 blur-[10px]" />
+                <Airplane />
+                <div className="z-10 flex flex-col justify-center items-center gap-y-[10px] rounded-full aspect-square p-[40px]">
+                    {/* <Hero /> */}
+                    <div className="flex flex-col items-center text-center text-[32px] md:text-[42px] xl:text-[52px]">
+                        <h1 className="tracking-wider font-medium ">John Soatra</h1>
+                        {/* <h2 className="tracking-wider">software engineer</h2> */}
+                    </div>
                     <Desc />
+                    <div className="flex flex-col items-center text-center text-[22px] md:text-[30px] xl:text-[40px]">
+                        {/* <h1 className="tracking-wider font-medium">John Soatra</h1> */}
+                        <h2 className="tracking-wider font-medium">software engineer</h2>
+                    </div>
+                    <Link href="https://www.linkedin.com/in/soatra/" className="w-[24px] h-[24px] absolute top-5 left-5 opacity-85" target="_blank">
+                        <Image src='/icons/linkedin.png' width={24} height={24} alt="linkedin" />
+                    </Link>
+                    {/* <p>I know you need time to think, but now you already spend it all.</p> */}
                 </div>
-                <Hello />
-                <Skill />
-                <Portfolio />
-                <Contact />
-                <UpdateVisitor
-                    onSuccessUpdate={(visitor) => {
-                        setVisitorName(visitor.name);
-                        setVisitorLink(visitor.link||undefined);
-                    }}
-                />
-                <SpaceBottom />
-                <Footer />
             </div>
         </div>
     );
