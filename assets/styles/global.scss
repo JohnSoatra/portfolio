@@ -1,5 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './font_face';
-@import './reset';
+@import "./font_face";
+@import "./reset";
+@import "./component.scss";
+@import "./animation.scss";
