@@ -70,7 +70,13 @@
 }
 
 .background {
-  background-image: url("/imgs/sky-10.webp");
+  background-image: linear-gradient(
+    to bottom,
+    rgb(144, 179, 215) 0%,
+    rgb(201, 219, 236) 50%,
+    rgb(246, 228, 223) 98%,
+    rgb(142, 120, 158) 100%
+  );
   background-size: auto 100%;
   background-position: 50% 0%;
   background-repeat: repeat;
