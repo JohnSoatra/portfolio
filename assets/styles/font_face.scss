@@ -1,18 +1,18 @@
-/* Hexa */
+/* Roboto */
 @font-face {
-  font-family: "Hexa";
-  src: url("./font/hexa/regular.ttf") format("truetype");
-  font-weight: 600;
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/roboto-regular.woff2") format("woff2");
+  font-weight: normal;
 }
 
-/* Jeko */
 @font-face {
-  font-family: "Jeko";
-  src: url("./font/jeko/Jeko-Regular.ttf") format("truetype");
-  font-weight: 600;
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/roboto-medium.woff2") format("woff2");
+  font-weight: 500;
 }
+
 @font-face {
-  font-family: "Jeko";
-  src: url("./font/jeko/Jeko-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "Roboto";
+  src: url("/fonts/Roboto/roboto-bold.woff2") format("woff2");
+  font-weight: bold;
 }

@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from "next";
 import "@/assets/styles/global.scss";
+import type { Metadata, Viewport } from "next";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
@@ -19,15 +19,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-    themeColor: 'black',
-    colorScheme: 'dark'
+    themeColor: 'white',
+    colorScheme: 'light'
 }
 
-export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
             <head>
-                <link rel="preload" as="image" href="/pattern.webp" />
+                <link rel="preload" href='/fonts/Roboto/roboto-regular.woff2' as="font" type="font/woff2" crossOrigin="anonymous"></link>
+                <link rel="preload" href='/fonts/Roboto/roboto-medium.woff2' as="font" type="font/woff2" crossOrigin="anonymous"></link>
+                <link rel="preload" href='/fonts/Roboto/roboto-bold.woff2' as="font" type="font/woff2" crossOrigin="anonymous"></link>
             </head>
             <body>
                 {children}
