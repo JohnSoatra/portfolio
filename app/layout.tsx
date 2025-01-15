@@ -30,6 +30,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 <link rel="preload" href='/fonts/Roboto/roboto-regular.woff2' as="font" type="font/woff2" crossOrigin="anonymous"></link>
                 <link rel="preload" href='/fonts/Roboto/roboto-medium.woff2' as="font" type="font/woff2" crossOrigin="anonymous"></link>
                 <link rel="preload" href='/fonts/Roboto/roboto-bold.woff2' as="font" type="font/woff2" crossOrigin="anonymous"></link>
+                <link rel="preload" as="image" href="/imgs/sky-10.webp" />
             </head>
             <body>
                 {children}
