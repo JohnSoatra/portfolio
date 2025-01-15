@@ -20,7 +20,7 @@ const Home = () => {
                     </p>
                     <h2 className="tracking-wider self-end text-end text-[15px] mt-[30px]">a programer.</h2>
                     <Link href="https://www.linkedin.com/in/soatra/" className="w-[24px] h-[24px] absolute top-5 left-5 opacity-85" target="_blank">
-                        <Image src='/icons/linkedin.png' width={24} height={24} alt="linkedin" />
+                        <Image src='/icons/linkedin.png' width={24} height={24} alt="linkedin" priority />
                     </Link>
                 </div>
             </div>
