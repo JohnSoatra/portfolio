@@ -1,3 +1,4 @@
+import plugin from "tailwindcss/plugin";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -21,6 +22,13 @@ const config: Config = {
                 'Roboto': "Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
             }
         },
-    }
+    },
+    plugins: [
+        plugin(function ({ addUtilities }) {
+            addUtilities({
+                ".max-w-container": {},
+            });
+        }),
+    ],
 };
 export default config;

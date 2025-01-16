@@ -15,6 +15,14 @@
   animation-name: fly-down;
 }
 
+.animate-fade-in {
+  animation: 250ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: fade-in;
+}
+
 @keyframes fly-up {
   0% {
     top: 100%;
@@ -45,5 +53,13 @@
     top: 100%;
     right: 100%;
     transform: rotate(-25deg) translate(0%, 25%) scaleX(-1);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

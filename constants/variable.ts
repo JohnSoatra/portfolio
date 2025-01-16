@@ -1,4 +1,4 @@
-const Vars = {
+const Variables = {
     Name: {
         MinLength: 3,
         MaxLength: 15
@@ -10,6 +10,10 @@ const Vars = {
     Duration: 2500,
     Easing: 'quartOut' as 'quartOut',
     Delay: 150,
+    Default: {
+        RequestDelay: 1000,
+        RequestTries: 3,
+    },
 }
 
-export default Vars;
+export default Variables;

@@ -22,12 +22,14 @@ const Airplane = () => {
   }, []);
 
   return (
-    <div className={animationClassName} onAnimationEnd={handleAnimationEnd}>
-      <div className="planeWrapper">
-        <div className="planeBody">
-          <div className="planeTail"></div>
-          <div className="wingLeft"></div>
-          <div className="wingRight"></div>
+    <div className='w-full max-w-container h-full fixed top-0 left-1/2 -translate-x-1/2'>
+      <div className={animationClassName} onAnimationEnd={handleAnimationEnd}>
+        <div className="planeWrapper">
+          <div className="planeBody">
+            <div className="planeTail"></div>
+            <div className="wingLeft"></div>
+            <div className="wingRight"></div>
+          </div>
         </div>
       </div>
     </div>
