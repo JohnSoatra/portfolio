@@ -1,6 +1,6 @@
 import { Vibrant } from "node-vibrant/browser";
 
-function getBackgroundColor(url: string): Promise<any> {
+function getBackgroundColor(url: string): Promise<string | undefined> {
   return new Promise((res, rej) => {
     Vibrant.from(url)
       .getPalette()

@@ -27,7 +27,7 @@ export default function MovieController() {
 
     // getMovieTrailer({ id: 411088 });
     getBackgroundColor('/imgs/invisible.jpg').then(res => {
-      if (refDiv.current) {
+      if (refDiv.current && res) {
         refDiv.current.style.backgroundColor = res;
       }
     })
