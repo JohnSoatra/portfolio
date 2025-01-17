@@ -41,3 +41,19 @@ export interface Movie {
   "vote_average": number;
   "vote_count": number;
 }
+
+export interface Trailer {
+  "id": number;
+  "results": {
+    "iso_639_1": string;
+    "iso_3166_1": string;
+    "name": string;
+    "key": string;
+    "published_at": string;
+    "site": string;
+    "size": number;
+    "type": string;
+    "official": boolean;
+    "id": string;
+  }[]
+}

@@ -8,10 +8,10 @@ import MovieController from "@/components/client/MovieController";
 const Home = async () => {
     return (
         <div className="w-full flex flex-col items-center overflow-hidden">
-            {/* <Background />
-            <Airplane /> */}
+            <Background />
+            {/* <Airplane /> */}
             <div className="w-full max-w-container z-10 relative flex flex-col items-center">
-                {/* <div className="flex flex-col items-center mt-[199px]">
+                <div className="min-h-screen flex flex-col items-center pt-[199px]">
                     <h1 className="tracking-wider font-medium text-center text-[46px] md:text-[60px] xl:text-[83px]">
                         John Soatra
                     </h1>
@@ -23,7 +23,7 @@ const Home = async () => {
                     <Link href="https://www.linkedin.com/in/soatra/" className="w-[24px] h-[24px] absolute top-5 left-5 opacity-85" target="_blank">
                         <Image src='/icons/linkedin.png' width={24} height={24} alt="linkedin" priority />
                     </Link>
-                </div> */}
+                </div>
                 <MovieController />
             </div>
         </div>
