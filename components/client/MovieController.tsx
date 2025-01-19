@@ -2,46 +2,90 @@
 import useData from "@/hook/useData";
 import { Movie, Trailer } from "@/http/dts/type";
 import getMovieDetail from "@/http/service/getMovieDetail.service";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Movies from '@/assets/movie.json';
 import { randomNumber } from "@/utils/number";
 import getMovieTrailer from "@/http/service/getMovieTrailer.service";
+import Image from "next/image";
+import { tbmlImageUrl } from "@/utils/url";
+import getColor from "@/http/service/getColor";
 import { getBackgroundColor } from "@/utils/color";
+import { rgbString } from "@/utils/util";
+import ReactPlayer from "react-player";
 
 export default function MovieController() {
   const [movie, setMovie] = useData<Movie | undefined>(undefined);
-  const [tailer, setTailer] = useData<Trailer | undefined>(undefined);
+  const [trailer, setTrailer] = useData<Trailer | undefined>(undefined);
   const loadingMovie = useMemo(() => movie === undefined, [movie]);
   const refDiv = useRef<HTMLDivElement>(null);
+  const [backdropColor, setBackdropColor] = useData<string | undefined>(undefined);
+  const backdropUrl = useMemo(() => movie && tbmlImageUrl(movie.backdrop_path), [movie]);
+  const posterUrl = useMemo(() => movie && tbmlImageUrl(movie.poster_path), [movie]);
+  const readyToShow = useMemo(() => loadingMovie === false && backdropUrl !== undefined && posterUrl !== undefined, [loadingMovie, backdropUrl, posterUrl]);
+  const [playing, setPlying] = useData(false);
+  const [muted, setMuted] = useData(false);
 
   useEffect(() => {
-    setMovie(() => ({
-      "adult": false,
-      "backdrop_path": "/1ZSWFzAP4AZuFCigZZoib2RdcUO.jpg",
-      "original_language": "es",
-      "overview": "Barcelona, Spain. Adrián Doria, a young and successful businessman accused of murder, meets one night with Virginia Goodman, an expert interrogation lawyer, in order to devise a defense strategy.",
-      "poster_path": "/fptnZJbLzKUHeNlYrAynbyoL5YJ.jpg",
-      "title": "The Invisible Guest",
-      "video": false,
-    }) as Movie);
+    if (backdropUrl) {
+      getColor({ url: backdropUrl })
+        .then(res => {
+          if (res.data.LightVibrant) {
+            setBackdropColor(() => rgbString(res.data.LightVibrant!.rgb));
+          }
+        });
+    }
+  }, [backdropUrl]);
 
-    // getMovieTrailer({ id: 411088 });
-    getBackgroundColor('/imgs/invisible.jpg').then(res => {
-      if (refDiv.current && res) {
-        refDiv.current.style.backgroundColor = res;
-      }
-    })
+  useEffect(() => {
+    const movieId = Movies[randomNumber(0, Movies.length - 1)].id;
+    getMovieDetail({
+      id: movieId
+    }).then(res => {
+      setMovie(() => res.data);
+    });
+    getMovieTrailer({
+      id: movieId
+    }).then(res => {
+      setTrailer(() => res.data);
+    });
   }, []);
 
   return (
-    <div className="relative w-screen min-h-screen" ref={refDiv}>
-      <div className="w-full h-full bg-blue-300 top-0 left-0"></div>
+    <div className="w-full min-h-screen relative snap-start">
       <div className={loadingMovie ? '' : 'animate-fade-in'}>
         {
-          loadingMovie ? null :
-            <div>
-              movie = {movie!.title}
-            </div>
+          readyToShow && trailer &&
+          <>
+            <ReactPlayer
+              url={`https://youtu.be/${trailer.results[0].key}`}
+              width={'100%'}
+              height={'100vh'}
+              playing={playing}
+              muted={muted}
+              onPlay={() => {
+                setPlying(() => true);
+                setMuted(() => false);
+              }}
+              onPause={() => setPlying(() => false)}
+
+            />
+            {playing === false && <button
+              className="absolute inset-0"
+              onClick={() => {
+                setPlying(() => true);
+              }}>
+              <Image
+                src={backdropUrl!}
+                alt="movie"
+                fill={true}
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+            </button>}
+            {/* width={100} height={100} quality={100} */}
+            {/* <img src={backdropUrl!} alt="sdf" /> */}
+          </>
         }
       </div>
     </div>

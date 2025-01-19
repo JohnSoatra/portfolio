@@ -1,9 +1,9 @@
 import Enum from "@/constants/enum";
 import getService from "../getService";
-import { GetMovieDetailData, GetMovieDetailReq } from "../dts/getMovieDetail.dto";
+import { GetMovieTrailerData, GetMovieTrailerReq } from "../dts/getMovieTrailer.dto";
 
-function getMovieTrailer(requestProps: GetMovieDetailReq) {
-  return getService<GetMovieDetailData>(Enum.Api.GetMovieDetail(requestProps.id));
+function getMovieTrailer(requestProps: GetMovieTrailerReq) {
+  return getService<GetMovieTrailerData>(Enum.Api.GetMovieTrailer(requestProps.id));
 }
 
 export default getMovieTrailer;

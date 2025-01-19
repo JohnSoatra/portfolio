@@ -8,9 +8,21 @@ const axiosTmdb = axios.create({
   baseURL: process.env.TMDB_API_BASE_URL,
   headers: {
     accept: 'application/json'
+  },
+  fetchOptions: {
+    catch: 'force-catch'
   }
 });
-const axiosClient = axios.create();
+const axiosClient = axios.create({
+  fetchOptions: {
+    catch: 'force-catch'
+  }
+});
+const axiosNormal = axios.create({
+  fetchOptions: {
+    catch: 'force-catch'
+  }
+});
 
 axiosClient.interceptors.request.use((config) => {
   if (!/^https?:\/\//i.test(config.url!)) {
@@ -27,5 +39,6 @@ axiosRetry(axiosTmdb, {
 
 export {
   axiosTmdb,
-  axiosClient
+  axiosClient,
+  axiosNormal
 };

@@ -8,12 +8,15 @@ const Variables = {
     },
     MaxTran: 67,
     Duration: 2500,
-    Easing: 'quartOut' as 'quartOut',
     Delay: 150,
     Default: {
         RequestDelay: 1000,
         RequestTries: 3,
     },
+    ImageWidth: {
+        Backdrop: 'w1280',
+        Poster: 'w780'
+    }
 }
 
 export default Variables;
