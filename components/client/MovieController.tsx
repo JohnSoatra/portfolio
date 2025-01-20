@@ -55,37 +55,29 @@ export default function MovieController() {
       <div className={loadingMovie ? '' : 'animate-fade-in'}>
         {
           readyToShow && trailer &&
-          <>
-            <ReactPlayer
-              url={`https://youtu.be/${trailer.results[0].key}`}
-              width={'100%'}
-              height={'100vh'}
-              playing={playing}
-              muted={muted}
-              onPlay={() => {
-                setPlying(() => true);
-                setMuted(() => false);
-              }}
-              onPause={() => setPlying(() => false)}
+          <ReactPlayer
+            url={`https://youtu.be/${trailer.results[0].key}`}
+            width={'100%'}
+            height={'100vh'}
+            config={{
+              youtube: {
+                playerVars: {
+                  modestbranding: 1, // Removes YouTube logo
+                  showinfo: 0,       // Deprecated but sometimes helps to hide extra info
+                  rel: 0,            // Prevents showing related videos at the end
+                  iv_load_policy: 3, // Hides annotations
+                },
+              }
+            }}
+            playing={playing}
+            muted={muted}
+            onPlay={() => {
+              setPlying(() => true);
+              setMuted(() => false);
+            }}
+            onPause={() => setPlying(() => false)}
 
-            />
-            {playing === false && <button
-              className="absolute inset-0"
-              onClick={() => {
-                setPlying(() => true);
-              }}>
-              <Image
-                src={backdropUrl!}
-                alt="movie"
-                fill={true}
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-              />
-            </button>}
-            {/* width={100} height={100} quality={100} */}
-            {/* <img src={backdropUrl!} alt="sdf" /> */}
-          </>
+          />
         }
       </div>
     </div>
