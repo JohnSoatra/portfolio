@@ -7,6 +7,10 @@
 }
 
 @theme inline {
+  --font-roboto: var(--font-roboto);
+}
+
+@theme inline {
   --breakpoint-xs: 0;
   --breakpoint-sm: 360;
 }
@@ -18,7 +22,6 @@
 }
 
 @layer base {
-
   *,
   *:before,
   *:after {
@@ -27,7 +30,6 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
   }
-
   input,
   label,
   select,
@@ -35,11 +37,9 @@
   textarea {
     vertical-align: middle;
   }
-
   input:focus {
     outline: 0;
   }
-
   img {
     width: 100%;
     vertical-align: middle;

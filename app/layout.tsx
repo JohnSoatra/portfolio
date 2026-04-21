@@ -26,9 +26,9 @@ export const viewport: Viewport = {
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
+  weight: ['300','400','500','700','900'],
   variable: "--font-roboto",
-  display: "swap",  
+  display: "block",
 });
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
