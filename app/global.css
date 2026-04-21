@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --color-one: oklch(0.1776 0 0);
+  --color-dark: oklch(0.3211 0 0);
+  --color-light: oklch(0.9491 0 0);
+}
+
+@theme inline {
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 360;
+}
+
+@theme inline {
+  --color-one: var(--color-one);
+  --color-dark: var(--color-dark);
+  --color-light: var(--color-light);
+}
+
+@layer base {
+
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  input,
+  label,
+  select,
+  button,
+  textarea {
+    vertical-align: middle;
+  }
+
+  input:focus {
+    outline: 0;
+  }
+
+  img {
+    width: 100%;
+    vertical-align: middle;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+@utility background {
+  background-image: linear-gradient(to bottom,
+      rgb(144, 179, 215) 0%,
+      rgb(201, 219, 236) 50%,
+      rgb(246, 228, 223) 98%,
+      rgb(142, 120, 158) 100%);
+  background-size: auto 100%;
+  background-position: 50% 0%;
+  background-repeat: repeat;
+}
